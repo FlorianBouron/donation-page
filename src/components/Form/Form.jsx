@@ -6,6 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { isConnected, transactionRequest } from "@gemwallet/api";
 import styles from "./Form.module.scss";
 
 export const Form = () => {
@@ -13,6 +14,29 @@ export const Form = () => {
 
   const handleValueChange = (amount) => {
     setValue(amount);
+  };
+
+  const handleDonateButton = () => {
+    isConnected().then((isConnected) => {
+      if (isConnected) {
+        const transaction = {
+          chain: "xrp",
+          network: "TEST",
+          transaction: "payment",
+          amount: value,
+          destination: "rNsgBuWPVeHYvmkeaHxq1BKyncqMK3M415",
+          token: "xrp",
+          apiVersion: 1,
+        };
+        transactionRequest(transaction).then((status) => {
+          if (status === "success") {
+            alert("Your donation was properly made over the network");
+          }
+        });
+      } else {
+        alert("Please install GemWallet extension, it doesn't seem installed");
+      }
+    });
   };
 
   return (
@@ -49,7 +73,9 @@ export const Form = () => {
             rows={2}
           />
         </div>
-        <Button variant="contained">Donate</Button>
+        <Button variant="contained" onClick={handleDonateButton}>
+          Donate
+        </Button>
       </div>
     </Paper>
   );
