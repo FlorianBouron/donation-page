@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 425px;
+  min-width: 320px;
+  margin-bottom: 2.5rem;
+  
+  .header {
+    display: flex;
+    align-items: center;
+    height: 66px;
+    padding-left: 20px;
+    background-color: #FF41A2;
+    color: white;
+  }
+
+  .body {
+    text-align: center;
+    padding: 20px;
+
+    .textAreaContainer {
+      margin: 20px 0;
+      .textArea {
+        width: 100%;
+      }
+    }
+  }
+}
