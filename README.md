@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Donation Website on the XRPL with GemWallet
+
+This repository is an example to show how to create a cryptocurrency donation page on the XRPL with GemWallet.
+
+See the full tutorial on youtube: https://youtu.be/lQ8pykvHgrI
+
+![](demo.gif)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
